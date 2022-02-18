@@ -1,11 +1,13 @@
 import os
+
+import RPi.GPIO as GPIO
 import adafruit_sdcard
 import busio
 import digitalio
 import storage
 SD_CS = Pin.22
 
-spi = busio.SPI(board.SCK, board.MOSI, board.MISO)
+spi = board.SPI(board.SCK, board.MOSI, board.MISO)
 cs = digitalio.DigitalInOut(SD_CS)
 sdcard = adafruit_sdcard.SDCard(spi, cs)
 vfs = storage.VfsFat(sdcard)
